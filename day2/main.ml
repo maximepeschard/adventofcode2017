@@ -16,5 +16,8 @@ let to_spreadsheet filename =
 
 let () =
     let spreadsheet = to_spreadsheet file in
-    let result = checksum spreadsheet in
-    print_endline (string_of_int result)
+    let result_part1 = checksum_1 spreadsheet
+    and result_part2 = checksum_2 spreadsheet in
+    print_endline (string_of_int result_part1);
+    print_endline (string_of_int result_part2);
+    flush stdout;

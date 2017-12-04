@@ -19,18 +19,28 @@ let rec contains_duplicates xs =
     | hd::tl -> if List.mem hd tl then true
                 else contains_duplicates tl
 
-(* string -> string list -> bool *)
-let rec anagrams word words =
-    let chars = List.sort Char.compare (explode word) in
-    match words with
-    | [] -> false
-    | hd::tl -> chars = (List.sort Char.compare (explode hd)) || anagrams word tl
+(* 'a -> 'a list -> 'a list list *)
+let insert_all_pos x xs =
+    let rec aux x acc prec rem =
+        match rem with
+        | [] -> (prec @ [x]) :: acc
+        | hd::tl -> aux x ((prec @ (x :: hd :: tl)) :: acc) (prec @ [hd]) tl
+    in aux x [] [] xs
+
+(* 'a list -> 'a list list *)
+let rec permutations xs =
+    match xs with
+    | [] -> []
+    | hd::[] -> [[hd]]
+    | hd::tl -> List.flatten (List.map (insert_all_pos hd) (permutations tl))
 
 (* string list -> bool *)
 let rec contains_anagrams words =
     match words with
     | [] -> false
-    | hd::tl -> anagrams hd tl || contains_anagrams tl
+    | hd::tl -> let anagrams = permutations (explode hd) in
+                if List.exists (fun ana -> List.mem ana (List.map explode tl)) anagrams then true
+                else contains_anagrams tl
 
 (* string -> (string list -> bool) -> bool *)
 let is_valid passphrase validation_func =

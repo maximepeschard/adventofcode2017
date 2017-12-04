@@ -3,8 +3,12 @@
 My attempt at solving the series of programming puzzles from [Advent of
 Code](http://adventofcode.com/2017).
 
-To get the answers for day `N` :
+Each day has a directory, with a `<puzzle_related_name>.ml` file containing the
+core code, a `main.ml` file for I/O and possibly some input file.
+
+To get my answers for day `N` :
 
 ```sh
-ocaml dayN/main.ml
+cd dayN
+ocaml main.ml
 ```

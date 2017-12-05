@@ -12,3 +12,10 @@ To get my answers for day `N` :
 cd dayN
 ocaml main.ml
 ```
+
+Also, I try to include some tests from the puzzle wording :
+
+```sh
+cd dayN
+ocaml tests.ml
+```

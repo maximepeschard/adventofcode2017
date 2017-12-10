@@ -1,7 +1,7 @@
-#use "../common/io.ml"
-#use "hash.ml"
+open Io
+open Hash
 
-let file = "input.txt"
+let file = Sys.argv.(1)
 
 let () =
   let lengths_str = List.hd (read_lines file)

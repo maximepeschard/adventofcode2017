@@ -1,5 +1,5 @@
-#use "../common/test.ml"
-#use "passphrase.ml";;
+open Test
+open Passphrase
 
 let () =
   let passphrases_1 = [

@@ -1,4 +1,4 @@
-#use "memory.ml"
+open Memory
 
 let input = 347991
 

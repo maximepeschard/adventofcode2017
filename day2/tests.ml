@@ -1,5 +1,5 @@
-#use "../common/test.ml"
-#use "checksum.ml";;
+open Test
+open Checksum
 
 let () =
   let spreadsheet_1 = [

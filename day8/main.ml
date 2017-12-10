@@ -1,7 +1,7 @@
-#use "../common/io.ml"
-#use "registers.ml"
+open Io
+open Registers
 
-let file = "input.txt"
+let file = Sys.argv.(1)
 
 let () =
   let instructions = read_lines file in

@@ -1,5 +1,3 @@
-#load "str.cma"
-
 type 'a operation = 'a -> 'a -> 'a
 type 'a register = Register of 'a
 type 'a condition = Condition of string * ('a -> 'a -> bool) * 'a

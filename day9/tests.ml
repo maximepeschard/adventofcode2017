@@ -1,5 +1,5 @@
-#use "../common/test.ml"
-#use "streams.ml"
+open Test
+open Streams
 
 let () =
   let s1 = "{}"

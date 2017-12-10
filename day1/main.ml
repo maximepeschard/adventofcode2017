@@ -1,7 +1,7 @@
-#use "../common/io.ml"
-#use "captcha.ml"
+open Io
+open Captcha
 
-let file = "input.txt"
+let file = Sys.argv.(1)
 
 let to_int_list str =
   let rec to_int_list_rec idx acc =

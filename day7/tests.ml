@@ -1,5 +1,5 @@
-#use "../common/test.ml"
-#use "programs.ml"
+open Test
+open Programs
 
 let () =
   let prog_infos = [

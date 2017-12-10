@@ -6,16 +6,24 @@ Code](http://adventofcode.com/2017).
 Each day has a directory, with a `<puzzle_related_name>.ml` file containing the
 core code, a `main.ml` file for I/O and possibly some input file.
 
+## Running
+
+To get my answers for the most recent day :
+
+```sh
+make main
+```
+
 To get my answers for day `N` :
 
 ```sh
-cd dayN
-ocaml main.ml
+make main DAY=dayN
 ```
 
-Also, I try to include some tests from the puzzle wording :
+## Tests
+
+I try to include tests from the puzzle wording, to run them for day `N` :
 
 ```sh
-cd dayN
-ocaml tests.ml
+make tests DAY=dayN
 ```

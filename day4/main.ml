@@ -1,7 +1,7 @@
-#use "../common/io.ml"
-#use "passphrase.ml"
+open Io
+open Passphrase
 
-let file = "input.txt"
+let file = Sys.argv.(1)
 
 let () =
   let passphrases = read_lines file in

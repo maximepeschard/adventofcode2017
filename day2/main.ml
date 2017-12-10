@@ -1,8 +1,7 @@
-#load "str.cma"
-#use "../common/io.ml"
-#use "checksum.ml"
+open Io
+open Checksum
 
-let file = "input.txt"
+let file = Sys.argv.(1)
 
 let to_int_list str =
   List.map int_of_string (Str.split (Str.regexp "[^0-9]+") str)

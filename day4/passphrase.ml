@@ -1,5 +1,3 @@
-#load "str.cma"
-
 (* Split a string into (whitespace separated) words *)
 let to_word_list phrase =
   Str.split (Str.regexp "[ \t]+") phrase

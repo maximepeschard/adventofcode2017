@@ -1,7 +1,7 @@
-#use "../common/io.ml"
-#use "programs.ml"
+open Io
+open Programs
 
-let file = "input.txt"
+let file = Sys.argv.(1)
 
 let () =
   let prog_infos = read_lines file in

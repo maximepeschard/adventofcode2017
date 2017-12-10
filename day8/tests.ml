@@ -1,5 +1,5 @@
-#use "../common/test.ml"
-#use "registers.ml"
+open Test
+open Registers
 
 let () =
   let instructions = [

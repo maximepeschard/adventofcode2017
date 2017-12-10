@@ -1,7 +1,7 @@
-#use "../common/io.ml"
-#use "streams.ml"
+open Io
+open Streams
 
-let file = "input.txt"
+let file = Sys.argv.(1)
 
 let () =
   let stream = List.hd (read_lines file) in

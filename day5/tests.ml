@@ -1,5 +1,5 @@
-#use "../common/test.ml"
-#use "maze.ml"
+open Test
+open Maze
 
 let () =
   let maze = [0; 3; 0; 1; -3] in

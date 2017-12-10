@@ -1,5 +1,3 @@
-#load "str.cma"
-
 (* Remove canceled characters and the '!' doing the canceling from a stream *)
 let remove_canceled s = Str.global_replace (Str.regexp "!.") "" s
 

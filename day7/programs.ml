@@ -1,5 +1,3 @@
-#load "str.cma"
-
 (* Build a tower (a list of (name, weight, list of children names) from input *)
 let to_tower progs_info =
   let to_info prog =

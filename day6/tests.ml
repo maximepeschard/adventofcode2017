@@ -1,5 +1,5 @@
-#use "../common/test.ml"
-#use "memory.ml"
+open Test
+open Memory
 
 let () =
   let banks = [0; 2; 7; 0] in

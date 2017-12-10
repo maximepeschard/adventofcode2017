@@ -1,7 +1,7 @@
-#use "../common/io.ml"
-#use "maze.ml"
+open Io
+open Maze
 
-let file = "input.txt"
+let file = Sys.argv.(1)
 
 let () =
   let maze = List.map int_of_string (read_lines file) in

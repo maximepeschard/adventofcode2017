@@ -1,5 +1,5 @@
-#use "../common/test.ml"
-#use "hash.ml"
+open Test
+open Hash
 
 let () =
   let size = 256

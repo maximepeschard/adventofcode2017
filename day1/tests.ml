@@ -1,5 +1,5 @@
-#use "../common/test.ml"
-#use "captcha.ml";;
+open Test
+open Captcha
 
 let () =
   let tests = [

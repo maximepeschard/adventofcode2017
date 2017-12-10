@@ -1,5 +1,4 @@
-#load "str.cma"
-#use "printf.ml"
+open Printf
 
 (* Get a list of the ASCII codes from a string *)
 let to_ascii_codes s =

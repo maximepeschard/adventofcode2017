@@ -1,10 +1,10 @@
-.PHONY: all clean test main
+.PHONY: all clean
 
 DAY = $(shell ls | grep day | sort -n -k 1.4 | tail -n 1)
 OCB_FLAGS = -lib str -I common -I $(DAY)
 OCB = ocamlbuild $(OCB_FLAGS)
 
-all: native byte
+all: tests main
 
 clean:
 	$(OCB) -clean

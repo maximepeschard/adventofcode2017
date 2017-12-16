@@ -9,10 +9,15 @@ let to_ascii_codes s =
   in aux (Stream.of_string s) []
 
 (* Get the offset version of a circular list *)
-let rec circular xs offset =
-  match xs with
-  | [] -> []
-  | hd::tl -> if offset <= 0 then xs else circular (tl @ [hd]) (offset - 1)
+let circular offset l =
+  let rec aux l acc offset =
+    match l, acc, offset with
+    | [], [], _ -> []
+    | [], _, o when o <= 0 -> List.rev acc
+    | [], _, _ -> aux (List.rev acc) [] offset
+    | hd::tl, _, o when o <= 0 -> l @ (List.rev acc)
+    | hd::tl, _, _ -> aux tl (hd :: acc) (offset - 1)
+  in aux l [] offset
 
 (* Split a list by taking the first n elements and return them along the remainings ones *)
 let take n xs =
@@ -30,7 +35,7 @@ let rec hash_round xs size lengths skip pos =
   | [] -> xs, skip, pos
   | hd::tl ->
       let first, rem = take hd xs in
-      let new_xs = circular ((List.rev first) @ rem) (hd + skip) in
+      let new_xs = circular (hd + skip) ((List.rev first) @ rem) in
       hash_round new_xs size tl (skip + 1) ((pos + hd + skip) mod size)
 
 (* Build a dense hash from a sparse hash *)
@@ -47,7 +52,7 @@ let hash_1 size lengths_str =
   let lengths = List.map int_of_string (Str.split (Str.regexp ",[ \t]*") lengths_str)
   and xs = List.init size (fun x -> x) in
   let l, skip, pos = hash_round xs size lengths 0 0 in
-  let final = circular l (size - pos) in
+  let final = circular (size - pos) l in
   (List.nth final 0) * (List.nth final 1)
 
 let hash_2 size block_size rounds suffix lengths_str =
@@ -60,6 +65,6 @@ let hash_2 size block_size rounds suffix lengths_str =
       loop (n - 1) xs skip pos
   in
   let xs, skip, pos = loop rounds xs 0 0 in
-  let sparse = circular xs (size - pos) in
+  let sparse = circular (size - pos) xs in
   let dense = dense_hash block_size sparse in
   String.concat "" (List.map (fun n -> sprintf "%02x" n) dense)

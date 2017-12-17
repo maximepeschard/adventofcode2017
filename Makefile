@@ -16,7 +16,7 @@ clean:
 	$(OCB) $@
 
 tests: ${DAY}/tests.native
-	./tests.native
+	./tests.native $(DAY)/input_tests.txt
 
 main: ${DAY}/main.native
 	./main.native $(DAY)/input.txt
